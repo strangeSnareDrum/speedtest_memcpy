@@ -3,8 +3,8 @@
 #include <iostream>
 #include <cstdio>
 
-#define N 10000
-#define BUFF_SIZE 10
+#define N 5000
+#define BUFF_SIZE 64
 #define N_RUNS 25
 
 using namespace std;
@@ -33,7 +33,7 @@ void do_measurements(int* data) {
 
     for (int i = 0; i < N; i++) {
         auto t0 = chrono::high_resolution_clock::now();
-        memcpy((void*) &dest[0], src, BUFF_SIZE);
+        memcpy((void*) dest, src, BUFF_SIZE);
         auto t1 = chrono::high_resolution_clock::now();
 
         data[i] = (t1 - t0).count();
